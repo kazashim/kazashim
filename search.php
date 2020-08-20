@@ -50,3 +50,28 @@ require_once('database/db.php');//db config file
     $pagination_statement = $pdo_conn->prepare($sql);
     $pagination_statement->bindValue(':keyword', '%' . $search_keyword . '%', PDO::PARAM_STR);
     $pagination_statement->execute();
+
+    $row_count = $pagination_statement->rowCount();
+    if(!empty($row_count)){
+    	$per_page_html .= "<div style='text-align:center;margin:20px 0px;'>";
+    	$page_count=ceil($row_count/ROW_PER_PAGE);
+    	if($page_count>1) {
+    		for($i=1;$i<=$page_count;$i++){
+    			if($i==$page){
+    				$per_page_html .= '<input type="submit" name="page" value="' . $i . '" class="btn-page current btn-warning" />';
+    			} else {
+    				$per_page_html .= '<input type="submit" name="page" value="' . $i . '" class="btn-page btn-danger" />';
+    			}
+    		}
+    	}
+    	$per_page_html .= "</div>";
+    }
+
+    $query = $sql.$limit;
+    $pdo_statement = $pdo_conn->prepare($query);
+    $pdo_statement->bindValue(':keyword', '%' . $search_keyword . '%', PDO::PARAM_STR);
+    $pdo_statement->execute();
+    $result = $pdo_statement->fetchAll();
+    ?>
+
+    
