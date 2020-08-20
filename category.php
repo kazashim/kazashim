@@ -42,3 +42,18 @@ $row = mysqli_fetch_assoc($result);?>
 		<li class="breadcrumb-item active"><?php echo $row['name']; ?></li>
 	</ol>
 	<!--//banner-->
+    <!--/main-->
+	<section class="main-content-w3layouts-agileits">
+		<div class="container">
+			<h3 class="tittle">Blog Posts</h3>
+			<div class="row inner-sec">
+				<!--left-->
+				<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+					<div class="row mb-4">
+						<?php  
+							$categoryid=$row['id'];
+							getcategoryblogs("blogs",$categoryid);
+						?>
+					</div>
+				</div>
+				<!--//left-->
