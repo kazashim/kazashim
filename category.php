@@ -28,3 +28,17 @@ $row = mysqli_fetch_assoc($result);?>
 	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
 	    rel="stylesheet">
 </head>
+<body>
+	<!--Header-->
+	<?php include("header.php");?>
+	<!--//header-->
+	<!--/banner-->
+	<div class="banner-inner">
+	</div>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.php">Home</a>
+		</li>
+		<li class="breadcrumb-item active"><?php echo $row['name']; ?></li>
+	</ol>
+	<!--//banner-->
