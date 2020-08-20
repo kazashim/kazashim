@@ -59,3 +59,46 @@
 					</div>
 				</div>
 				<!--//left-->
+                <!--right-->
+				<aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+					<div class="right-blog-info text-left">
+						<h4><strong>Categories</strong></h4>
+						<ul class="list-group single">
+							<?php countcategories();?>
+						</ul>
+						<div class="tech-btm widget_social">
+							<h4>Stay Connected</h4>
+							<ul>
+
+								<li>
+									<a class="twitter" href="<?php getlinks("links","twitter");?>">
+										<i class="fab fa-twitter"></i>
+										<span class="count"></span> Twitter</a>
+									</li>
+									<li>
+										<a class="facebook" href="<?php getlinks("links","facebook");?>">
+											<i class="fab fa-facebook-f"></i>
+											<span class="count"></span> Facebook</a>
+										</li>
+										<li>
+											<a class="dribble" href="<?php getlinks("links","dribble");?>">
+												<i class="fab fa-dribbble"></i>
+
+												<span class="count"></span> Dribble</a>
+											</li>
+											<li>
+												<a class="pin" href="<?php getlinks("links","pinterest");?>">
+													<i class="fab fa-pinterest"></i>
+													<span class="count"></span> Pinterest</a>
+												</li>
+
+											</ul>
+										</div>
+										<div class="tech-btm">
+											<h4>Older Posts</h4>
+											<?php getolderposts("blogs");?>
+											<!--olderpostsendhere-->
+										</div>
+									</div>
+								</aside>
+								<!--//right-->
