@@ -26,3 +26,53 @@
 
 				?></strong>
 			</div>
+            	<!--get most viewed page-->
+			<div class="alert alert-info">
+				<strong><?php 
+				require_once('conn.php');
+				$sql = "SELECT MAX(count) AS maximum FROM page_hits";
+				$query = $db->prepare($sql);
+				$query->execute();
+				$maxcount = $query->fetch()['maximum'];
+				echo "HIGHEST PAGE VIEWS :".$maxcount;
+
+				?></strong>
+			</div><br>
+			<div class="panel panel-primary">
+				<div class="panel-heading text-center">LATEST PAGE VIEWS&nbsp;&nbsp;(TOTAL PAGES VIEWED:<?php require_once("count_pages.php"); ?>)</div>
+				<div class="panel-body">
+					<div class="table-responsive">
+						<table class="table">
+							<tr class="info">
+								<th>Page Name</th>
+								<th>Total Views</th>
+							</tr>
+							<?php 
+							include("connect.php");
+							try {
+//connect to mysql
+								$con=new PDO($dsn,$username,$password);
+								$con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+								
+							} catch (Exception $ex) {
+								echo 'Not Connected '.$ex->getMessage();
+                            }
+                            //mysql select query
+							$stmt=$con->prepare('SELECT * FROM page_hits LIMIT 30');
+							$stmt->execute();
+							$resources=$stmt->fetchAll();
+							$row_count=$stmt->rowCount();
+							if ($row_count==0) {
+		# code...
+								$jibu="No content Yet";
+							}
+							foreach ($resources as $resource) {
+								echo '
+								<tr>
+								<td>'.$resource['page'].'</td>
+								<td>'.$resource['count'].'</td>
+								</tr>';
+
+
+							}
+							?>
