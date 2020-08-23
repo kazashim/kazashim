@@ -34,3 +34,22 @@ $roo=mysqli_fetch_assoc($feedback);?>
 	<!--additional javascripts will be placed here-->
 	<?php getjavascripts("links"); ?>
 </head>
+
+<body>
+	<!--Header-->
+	<?php include("header.php");?> 
+	<!--//header-->
+	<!--update database on page views-->
+	<?php  require_once('adminstats/conn.php');
+	require_once('counter.php');
+	$pn=updateCounter(''.$row['title'].''); // Updates page hits
+	echo $pn;
+	updateInfo(); // Updates hit info ?>
+	<div class="banner-inner">
+	</div>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.php">Home</a>
+		</li>
+		<li class="breadcrumb-item active">Blog</li>
+	</ol>
