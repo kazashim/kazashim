@@ -11,3 +11,11 @@ function checkPageName($page_name){
 		$query->execute([':page' => $page_name]);
 	}
 }
+
+// UPDATE PAGE HIT COUNT
+function updateCounter($page_name){
+	checkPageName($page_name);
+	$sql = "UPDATE ".$GLOBALS['hits_table_name']." SET count = count+1 WHERE page = :page";
+	$query = $GLOBALS['db']->prepare($sql);
+	$query->execute([':page' => $page_name]);
+}
