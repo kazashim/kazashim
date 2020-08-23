@@ -19,3 +19,12 @@ function updateCounter($page_name){
 	$query = $GLOBALS['db']->prepare($sql);
 	$query->execute([':page' => $page_name]);
 }
+
+// UPDATE VISITOR INFO
+function updateInfo(){
+	$sql = "INSERT INTO ".$GLOBALS['info_table_name']." (ip_address, user_agent) VALUES(:ip_address, :user_agent)";
+	$query = $GLOBALS['db']->prepare($sql);
+	$query->execute([':ip_address' => $_SERVER["REMOTE_ADDR"], ':user_agent' => $_SERVER["HTTP_USER_AGENT"]]);
+}
+
+?>
