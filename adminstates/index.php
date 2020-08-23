@@ -76,3 +76,52 @@
 
 							}
 							?>
+
+</table>
+					</div> 
+				</div>
+			</div>
+		</div><!--row-->
+		<div class="row">
+			<div class="panel panel-success">
+				<div class="panel-heading text-center">LATEST VISITOR DETAILS&nbsp;&nbsp;(TOTAL RECORDS:<?php require_once("count_user_stats.php"); ?>)</div>
+				<div class="panel-body">
+					<div class="table-responsive">
+						<table class="table">
+							<tr class="info">
+								<th>IP ADDRESS</th>
+								<th>USER AGENT</th>
+								<th>TIME ACCESSED</th>
+							</tr>
+							<?php 
+							include("connect.php");
+							try {
+//connect to mysql
+								$con=new PDO($dsn,$username,$password);
+								$con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+								
+							} catch (Exception $ex) {
+								echo 'Not Connected '.$ex->getMessage();
+							}
+
+//mysql select query
+							$stmt=$con->prepare('SELECT * FROM visitor_info ORDER BY time_accessed DESC LIMIT 10');
+							$stmt->execute();
+							$resources=$stmt->fetchAll();
+							$row_count=$stmt->rowCount();
+							if ($row_count==0) {
+		# code...
+								$jibu="No content Yet";
+							}
+							foreach ($resources as $resource) {
+								echo '
+								<tr>
+								<td>'.$resource['ip_address'].'</td>
+								<td>'.$resource['user_agent'].'</td>
+								<td>'.$resource['time_accessed'].'</td>
+								</tr>';
+
+
+							}
+							?>
+                            
