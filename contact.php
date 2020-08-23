@@ -66,3 +66,35 @@
 									</p>
 								</div>
 							</div>
+                            </div>
+						<div class="col-lg-4 address-grid">
+							<div class="row address-info">
+								<div class="col-md-4 address-left text-center">
+									<i class="far fa-envelope"></i>
+								</div>
+								<div class="col-md-8 address-right text-left">
+									<h6>Email</h6>
+									<p>
+										<a href="mailto:<?php getcontacts("titles","2");?>"><?php getcontacts("titles","2");?></a></p>
+									</div>
+
+								</div>
+							</div>
+							<div class="col-lg-4 address-grid">
+								<div class="row address-info">
+									<div class="col-md-4 address-left text-center">
+										<i class="fas fa-mobile-alt"></i>
+									</div>
+									<div class="col-md-8 address-right text-left">
+										<h6>Phone</h6>
+										<p><?php getcontacts("titles","3");?></p>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--//main-->
