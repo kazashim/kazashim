@@ -53,3 +53,47 @@ $roo=mysqli_fetch_assoc($feedback);?>
 		</li>
 		<li class="breadcrumb-item active">Blog</li>
 	</ol>
+    <!--//banner-->
+	<section class="banner-bottom">
+		<!--/blog-->
+		<div class="container">
+			<div class="row">
+				<!--left-->
+				<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+					<div class="blog-grid-top">
+						<div class="b-grid-top">
+							<div class="blog_info_left_grid">
+								<a href="#">
+									<img src="blogadmin/images/<?php echo $row['photo']; ?>" class="img-fluid" alt="image not available" style="width:900px;height:300px">
+								</a>
+							</div>
+							<div class="blog-info-middle">
+								<ul>
+									<li>
+										<a href="#">
+											<i class="far fa-calendar-alt"></i><?php echo $row['date']; ?></a>
+										</li>
+										<li class="mx-2">
+											<a href="#">
+												<i class="far fa-user"></i><?php echo $row['author']; ?></a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="far fa-tags"></i> <?php echo $row['tags']; ?></a>
+												</li>
+												<li>
+													<a href="#">
+														<i class="far fa-eye fa-x2"></i> <?php echo $roo['count']; ?></a>
+													</li>
+
+												</ul>
+											</div>
+										</div>
+
+										<h3>
+											<a href="single.html"><?php echo $row['title']; ?></a>
+										</h3>
+										<!--sharing script-->
+										<?php getsharingscript("links"); ?>
+										<?php echo $row['content']; ?>
+									</div>
