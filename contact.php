@@ -28,3 +28,41 @@
 
 <body>
 	<!--Header-->
+
+    <?php include("header.php");?>
+	<!--//header-->
+	<!--/banner-->
+	<div class="banner-inner">
+	</div>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.php">Home</a>
+		</li>
+		<li class="breadcrumb-item active">Contact</li>
+	</ol>
+	<!--//banner-->
+	<!--/main-->
+	<section class="main-content-w3layouts-agileits">
+    <h3 class="tittle">Contact Us</h3>
+		<p class="sub text-center">We love to discuss your idea</p>
+		<div class="contact-map inner-sec">
+
+			<iframe src="<?php getcontacts("titles","4");?>"
+				class="map" style="border:0" allowfullscreen=""></iframe>
+			</div>
+			<div class="ad-inf-sec bg-light">
+				<div class="container">
+					<div class="address row">
+
+						<div class="col-lg-4 address-grid">
+							<div class="row address-info">
+								<div class="col-md-4 address-left text-center">
+									<i class="far fa-map"></i>
+								</div>
+								<div class="col-md-8 address-right text-left">
+									<h6>Address</h6>
+									<p> <?php getcontacts("titles","1");?>
+
+									</p>
+								</div>
+							</div>
