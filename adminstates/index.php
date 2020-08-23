@@ -10,3 +10,19 @@
 	<script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<!--unique visitors count-->
+			<div class="alert alert-success">
+				<strong><?php 
+				require_once('conn.php');
+				$sql = "SELECT COUNT(DISTINCT ip_address) AS alias FROM visitor_info";
+				$query = $db->prepare($sql);
+				$query->execute();
+				$unique_visitors = $query->fetch()['alias'];
+				echo "TOTAL NUMBER OF UNIQUE VISITORS:".$unique_visitors;
+
+				?></strong>
+			</div>
